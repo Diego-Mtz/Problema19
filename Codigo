@@ -1,0 +1,64 @@
+#ifndef ECUACION_H
+#define ECUACION_H
+
+
+class ecuacion
+{
+    //declarar metodos de tipo publico(public)
+    public:
+        float calcularX1(int a,int b, int c);
+        float calcularX2(int a,int b, int c);
+
+
+
+//declarar metodos de tipo privado(private)
+    private:
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        float x1 =0;
+        float x2 =0;
+};
+
+#endif // ECUACION_H
+
+#include "ecuacion.h"
+#include<iostream>
+#include<math.h>
+using std::cout;
+using std::cin;
+using std::endl;
+
+float ecuacion::calcularX1(int a,int b, int c){
+    x1 = (-b + sqrt((b*b)-(4*a*c)))/(2*a);
+    return x1;
+}
+
+float ecuacion::calcularX2(int a,int b, int c){
+    x2 = (-b - sqrt((b*b)-(4*a*c)))/(2*a);
+    return x2;
+}
+
+int main (){
+    int a;
+    int b;
+    int c;
+    float x1;
+    float x2;
+
+    std::cout <<" ingrese el valor de a=";
+    std::cin >> a;
+
+    std::cout <<" ingrese el valor de b=";
+    std::cin >> b;
+
+    std::cout <<" ingrese el valor de c=";
+    std::cin >> c;
+
+    ecuacion ecuac; //instancia de conversion
+    x1 = ecuac.calcularX1(a, b, c);
+    x2 = ecuac.calcularX2(a, b, c);
+    std::cout << "x1=" << x1 << std::endl;
+    std::cout << "x2=" << x2 << std::endl;
+
+}
